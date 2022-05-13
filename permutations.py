@@ -1,5 +1,6 @@
 l = []
 def permutations(head, tail=''):
+	print(f"{head:<3} | {tail:<3}")
 	if len(head) == 0:
 		return tail
 	
@@ -11,5 +12,5 @@ def permutations(head, tail=''):
 		words.extend(word)
 	return words
 
-w = permutations('abc')
+w = permutations('aabc')
 print(w)
