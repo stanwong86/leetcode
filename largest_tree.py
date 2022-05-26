@@ -12,6 +12,7 @@ Tree with '4' as root has maximum number of nodes i.e 4 nodes.
 
 def maxNodes(nodes):
 
+	# 2 loops for the child to new parent mapping
 	uf = []
 	while nodes:
 		node = nodes.pop(-1)
@@ -29,28 +30,18 @@ def maxNodes(nodes):
 
 		uf.append([child, parent])
 
+	maxId = None
+	maxValue = -1
 	counts = {}
 	for child, parent in uf:
 		if parent not in counts:
 			counts[parent] = 0
 
 		counts[parent] += 1
-	# print(counts)
 
-	maxId = None
-	maxValue = None
-	for k, v in counts.items():
-		if maxId is None:
-			maxValue = v
-			maxId = k
-			continue
-
-		if maxValue == v and maxId > k:
-			maxValue = v
-			maxId = k
-		elif maxValue < v:
-			maxValue = v
-			maxId = k
+		if counts[parent] > maxValue:
+			maxValue = counts[parent]
+			maxId = parent
 
 	return maxId
 
