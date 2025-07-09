@@ -1,5 +1,7 @@
 '''
-A string is called balance when every letter occuring in the string appears in both upper and lowercase. for example, the string CATattac is balanced. Number of occurences does not matter
+A string is called balanced when every letter occuring in the string appears in both upper and lowercase. 
+
+for example, the string CATattac is balanced. Number of occurences does not matter
 '''
 import unittest
 
