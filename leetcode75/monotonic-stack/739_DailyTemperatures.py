@@ -29,3 +29,22 @@ class Solution:
                 temperatures[i] = 0
         
         return temperatures
+    
+
+'''Second solution uses a monotonic stack which solves it in O(2*n) at worst'''
+
+class Solution:
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        n = len(temperatures)
+        result = [0] * n
+        stack = []
+
+        for i in range(n):
+            temp = temperatures[i]
+            while stack and temperatures[stack[-1]] < temp:
+                last = stack.pop(-1)
+                result[last] = i - last
+            
+            stack.append(i)
+        
+        return result
