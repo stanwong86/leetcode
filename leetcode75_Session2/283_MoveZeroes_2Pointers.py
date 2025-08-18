@@ -3,17 +3,12 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        
-        zeroCount = 0
+        l = 0
+        r = 0
 
-        i = 0
-        while i < len(nums):
-            if nums[i] == 0:
-                nums.pop(i)
-                zeroCount += 1
-            else:
-                i += 1
+        while r < len(nums):
+            if nums[r] != 0:
+                nums[l], nums[r] = nums[r], nums[l]
+                l += 1
+            r += 1
         
-        nums.extend([0] * zeroCount)
-        return nums
-
